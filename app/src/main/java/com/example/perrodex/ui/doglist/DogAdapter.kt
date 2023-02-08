@@ -1,10 +1,12 @@
-package com.example.perrodex.doglist
+package com.example.perrodex.ui.doglist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.perrodex.model.Dog
 import com.example.perrodex.databinding.DogListItemBinding
 
@@ -18,6 +20,11 @@ class DogAdapter : ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallback) {
         override fun areContentsTheSame(oldItem: Dog, newItem: Dog): Boolean {
             return oldItem.id == newItem.id
         }
+    }
+
+    private var onItemClickListener:((Dog)-> Unit)? = null
+    fun setOnItemClickListener(onItemClickListener: (Dog) -> Unit){
+        this.onItemClickListener = onItemClickListener
     }
 
 
@@ -41,7 +48,10 @@ class DogAdapter : ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallback) {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(dog: Dog) {
-            binding.dogName.text = dog.name
+            binding.dogListItemLayout.setOnClickListener{
+                onItemClickListener?.invoke(dog)
+            }
+            binding.dogsImage.load(dog.imageUrl)
         }
 
     }

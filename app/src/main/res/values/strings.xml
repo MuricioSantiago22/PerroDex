@@ -38,4 +38,6 @@
     <string name="not_your_dog_button">Not your dog? Tap to see other probable dogs</string>
     <string name="other_probable_dogs">Other probable dogs</string>
     <string name="dismiss">My dog is not here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
