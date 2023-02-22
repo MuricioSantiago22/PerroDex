@@ -1,7 +1,6 @@
 package com.example.perrodex.network
 
 import com.example.perrodex.R
-import com.example.perrodex.model.dto.DogDTOMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.UnknownHostException
